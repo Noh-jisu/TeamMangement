@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.management.team.dao.LoginDao">
+
+	<!-- 아이디 중복 확인 -->
+	<select id="checkId" parameterType="String" resultType="Int">
+		SELECT
+			COUNT(*)
+		FROM
+			LOGIN_USER
+		WHERE 1=1
+			AND USER_ID = #{userId}
+	</select>
+
+	<!-- 회원가입 -->
+	<insert id="signUp" parameterType="com.management.team.dto.LoginDto">
+		INSERT INTO
+			LOGIN_USER
+		(		
+		  USER_ID		
+		, USER_PWD	
+		, USER_NAME	
+		, AGE			
+		, TEL			
+		, PART		
+		, SKILL_STACK	
+		, POSITION	
+		, CAREER		
+		, NOW_PROJECT	
+		, DEL_YN		
+		, USER_NUMBER	
+		, IN_DATE		
+		, OUT_DATA	
+		, ING_YN		
+		)
+		VALUES
+		(
+		  #{userId}
+		, #{userPwd}
+		, #{userName}
+		, #{age}
+		, #{tel}
+		, #{part}
+		, #{skillStack}
+		, #{position}
+		, #{career}
+		, #{nowProject}
+		, 'N'
+		, '1'
+		, #{inDate}
+		, #{outDate}
+		, 'N'
+		)
+	</insert>
+	
+	<!-- 로그인 -->
+	<select id="login" parameterType="com.management.team.dto.LoginDto" resultType="Int">
+		SELECT
+			    SEQ
+			  , USER_ID
+			  , USER_PWD
+			  , USER_NAME
+			  , AGE
+			  , TEL
+			  , PART
+			  , SKILL_STACK
+			  , POSITION
+			  , CAREER
+			  , NOW_PROJECT
+			  , DEL_YN
+			  , USER_NUMBER
+			  , IN_DATE
+			  , OUT_DATA
+			  , ING_YN
+		FROM
+			LOGIN_USER
+		WHERE 1=1
+			AND USER_ID = #{userId}
+			AND USER_PWD = #{userPwd}
+	</select>
+</mapper>

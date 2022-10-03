@@ -52,7 +52,7 @@ public class LoginController {
     }
     
     // 로그인
-    @RequestMapping(value = "/signUp", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/login", method = {RequestMethod.GET, RequestMethod.POST})
     public LoginDto login(LoginDto dto) {
     	return service.login(dto);
     }

@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+/* div
+{
+    border: 1px solid black;
+} */
+
+input
+{
+    width: 64.2vh;
+    height: 50px;
+    margin: 10px 0;
+    padding: 0 20px;
+    font-size: 22px;
+}
+
+button
+{
+    margin: 10px 0;
+    padding: 0 10px;
+    width: 69vh;
+    height: 50px;
+}
+
+#mainFrame
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginBox
+{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#loginTagBox
+{
+    width: 70vh;
+    padding: 50px;
+    border: 1px solid gray;
+}

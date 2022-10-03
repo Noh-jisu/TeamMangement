@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.management.team.dao.ProjectDetailDao">
+
+	<!-- 진행한 프로젝트 신규등록 -->
+	<insert id="insertProjectD" parameterType="com.management.team.dto.ProjectDetailDto">
+		INSERT INTO
+			PROJECT_D
+		(
+		  PROJECT_NUMBER
+		, PROJECT_NAME
+		, PROJECT_DESCRIPTION
+		, START_DATE
+		, END_DATE
+		, SKILL
+		, POSITION
+		, USER_ID
+		, USER_NAME
+		, DEL_YN
+		)
+		VALUES
+		(
+		  #{projectNumber}
+		, #{projectName}
+		, #{projectDescription}
+		, #{startDate}
+		, #{endDate}
+		, #{skill}
+		, #{userId}
+		, #{userName}
+		, 'N'
+		)
+	</insert>
+	
+	<!-- 등록된 프로젝트 유무 확인 -->
+	<select id="checkProjectRegist" parameterType="com.management.team.dto.ProjectDetailDto" resultType="Int">
+		SELECT
+			COUNT(*)
+		FROM
+			PROJECT_D
+		WHERE 1=1
+			AND PROJECT_NUMBER = #{projectNumber}
+			AND USER_ID = #{userId}
+			AND DEL_YN = 'N'
+	</select>
+	
+	<!-- 진행한 프로젝트 수정-->
+	<update id="updateProjectD" parameterType="com.management.team.dto.ProjectDetailDto">
+		UPDATE
+			PROJECT_D
+		SET
+			  PROJECT_DESCRIPTION = #{projectDescription}
+			, START_DATE = #{startDate}
+			, END_DATE = #{endDate}
+			, SKILL = #{skill}
+			, POSITION = #{position}
+		WHERE 1=1
+			AND SEQ = #{seq}
+			AND USER_ID = #{userId}
+			AND USER_NAME = #{userName}
+			
+	</update>
+	
+	<!-- 등록한 프로젝트 삭제 -->
+	<update id="deleteProjectD">
+		UPDATE
+			PROJECT_D
+		SET
+			  
+	</update>
+	
+	<!-- 등록한 프로젝트 조회 -->
+	<select id="select" parameterType="com.management.team.dto.ProjectDetailDto" resultType="com.management.team.dto.ProjectDetailDto">
+		SELECT
+			  A.PROJECT_NUMBER
+			, A.PROJECT_NAME
+			, A.PROJECT_DESCRIPTION
+			, A.START_DATE
+			, A.END_DATE
+			, A.SKILL
+			, A.POSITION
+			, A.USER_ID
+			, A.USER_NAME
+			, B.ING_YN
+		FROM
+			  PROJECT_D A
+			, PROJECT_M B
+		WHERE 1=1
+			AND A.PROJECT_NUMBER = B.PROJECT_NUMBER
+			AND A.DEL_YN = B.DEL_YN
+			AND A.PROJECT_NUMBER = #{projectNumber}
+			AND A.DEL_YN = 'N'
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</mapper>

@@ -65,15 +65,17 @@
 	</update>
 	
 	<!-- 등록한 프로젝트 삭제 -->
-	<update id="deleteProjectD">
+	<update id="deleteProjectD" parameterType="Int">
 		UPDATE
 			PROJECT_D
 		SET
-			  
+			  DEL_YN = 'Y'
+		WHERE 1=1
+			AND SEQ = #{seq}
 	</update>
 	
 	<!-- 등록한 프로젝트 조회 -->
-	<select id="select" parameterType="com.management.team.dto.ProjectDetailDto" resultType="com.management.team.dto.ProjectDetailDto">
+	<select id="selectProjectD" parameterType="com.management.team.dto.ProjectDetailDto" resultType="com.management.team.dto.ProjectDetailDto">
 		SELECT
 			  A.PROJECT_NUMBER
 			, A.PROJECT_NAME

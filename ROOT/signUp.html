@@ -57,14 +57,17 @@ $("#btnSignUp").click(function(){
 
     var arrStr = $('#checkBox').serialize().split('&');
 
-    var arrCheckBox = [];
+    var arrCheckBox = new Array();
 
-    console.log(arrCheckBox);
+    
 
     for(let i=0; i<arrStr.length; i++){
         console.log(arrStr[i]);
-        //var arrCheckBox[i] = arrStr.replace('skill=', '');
+        arrCheckBox[i] = arrStr[i].replace('skill=', '');
     }
+
+    console.log("최종" + arrCheckBox);
+    let skill = arrCheckBox.toString();
 
     // $.ajax({
     //     url:"http://localhost:3004/login",

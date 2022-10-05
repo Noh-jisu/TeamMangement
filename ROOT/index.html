@@ -6,38 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="./jquery/jquery.twbsPagination.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <link href="css/index.css" rel="stylesheet" />
 </head>
 <body>
-        <div id="loginBox">
-            <div id="loginTagBox">
-                <div style="text-align: center;">
-                    <h3>MEMBER LOGIN</h3>
-                </div>
+    <div id="loginBox">
+        <div id="loginTagBox">
+            <div style="text-align: center;">
+                <h3>MEMBER LOGIN</h3>
+            </div>
 
-                <div class="tagInput">
-                    <div>
-                        <input type="text" id="id" placeholder=ID>
-                    </div>
-                </div>
-                <div class="tagInput">
-                    <div>
-                        <input type="password" id="pwd" placeholder="PW">
-                    </div>
-                </div>
+            <div class="tagInput">
                 <div>
-                    <button type="button" id="btnLogin">
-                        Login
-                    </button>
-                </div>
-                <div>
-                    <button type="button" id="btnSignUp">
-                        Sign-up
-                    </button>
+                    <input type="text" id="id" placeholder="ID">
                 </div>
             </div>
+            <div class="tagInput">
+                <div>
+                    <input type="password" id="pwd" placeholder="PW">
+                </div>
+            </div>
+            <div>
+                <button type="button" id="btnLogin">
+                    Login
+                </button>
+            </div>
+            <div>
+                <button type="button" id="btnSignUp">
+                    Sign-up
+                </button>
+            </div>
         </div>
+    </div>
 
 <script type="text/javascript">
 // $(document).ready(function(){
@@ -64,7 +64,7 @@ $("#btnLogin").click(function(){
 });
 
 // 회원가입버튼 클릭이벤트
-$("#btnLogin").click(function(){
+$("#btnSignUp").click(function(){
     location.href = "signUp.html";
 });
 

@@ -5,13 +5,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <link href="css/signUp.css" rel="stylesheet" />
 </head>
 <body>
     <div>
-        <h3>Sign-up</h3>
-        <h1>Creat yuor account</h1>
-        <div>User ID</div>
-        <input type="text" id="userId"><button type="button" id="btnIdCheck">중복확인</button>
+        <form id="checkBox">
+            <h3>Sign-up</h3>
+            <h1>Creat yuor account</h1>
+            <div>ID <span>*</span></div>
+            <input type="text" id="userId"><button type="button" id="btnIdCheck">중복확인</button>
+            <div>Password <span>*</span></div>
+            <input type="password" id="userPwd">
+            <div>Password check <span>*</span></div>
+            <input type="password" id="checkPwd">
+            <div>User name <span>*</span></div>
+            <input type="text" id="userName">
+            <div>Age <span>*</span></div>
+            <input type="text" id="age">
+            <div>Tel</div>
+            <input type="text" id="tel">
+            <div>Using skill</div>
+            <input type="checkbox" name="skill" value="HTML">HTML
+            <input type="checkbox" name="skill" value="CSS">CSS
+            <input type="checkbox" name="skill" value="JAVA">JAVA
+            <input type="checkbox" name="skill" value="PYTHON">PYTHON
+            <input type="checkbox" name="skill" value="KOTLIN">HTML
+            <input type="checkbox" name="skill" value="C">C
+            <input type="checkbox" name="skill" value="C++">C++
+            <input type="checkbox" name="skill" value="C#">C#
+            <input type="checkbox" name="skill" value="JAVASCRIPT">JAVASCRIPT
+            <input type="checkbox" name="skill" value="REACT">REACT
+            <input type="checkbox" name="skill" value="NODE.JS">NODS.JS
+            <input type="checkbox" name="skill" value="VUE.JS">VUE.JS
+            <input type="checkbox" name="skill" value="JQUERY">JQUERY
+            <input type="checkbox" name="skill" value="ORACLE">ORACLE
+            <input type="checkbox" name="skill" value="MYSQL">MYSQL
+            <input type="checkbox" name="skill" value="MARIADB">MARIADB
+            <div>Career</div>
+            <input type="text" id="career">
+            <div>Start date</div>
+            <input type="text" id="year">-<input type="text" id="month">-<input type="text" id="date"><br>
+            <button type="button" id="btnSignUp">Sign-Up</button>
+        </form>
     </div>
+<script>
+
+// login버튼 클릭 이벤트
+$("#btnSignUp").click(function(){
+
+    var arrStr = $('#checkBox').serialize().split('&');
+
+    var arrCheckBox = [];
+
+    console.log(arrCheckBox);
+
+    for(let i=0; i<arrStr.length; i++){
+        console.log(arrStr[i]);
+        //var arrCheckBox[i] = arrStr.replace('skill=', '');
+    }
+
+    // $.ajax({
+    //     url:"http://localhost:3004/login",
+    //     type:"post",
+    //     data:{ "userId":userId, "userPwd":pwd},
+    //     success:function(data){
+    //         alert(data);
+    //     },
+    //     error:function(){
+    //         alert('login error');
+    //     }		
+    // });
+});
+</script>
 </body>
 </html>
